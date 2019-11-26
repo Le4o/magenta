@@ -9,20 +9,23 @@
 | routes for different URL's and bind Controller actions to them.
 |
 | A complete guide on routing is available here.
-| http://adonisjs.com/docs/4.1/routing
+| http://adonisjs.com/docs/4.0/routing
 |
 */
 
-/** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.on('/').render('welcome')
-Route.on('/register_page').render('register')
-Route.on('/dashboard').render('dashboard')
+Route.get('/', 'HomeController.home').as('home').middleware(['auth'])
 
-Route.get('users/:id', 'UserController.show').middleware('auth')
-Route.get('logout', 'UserController.logout').middleware('auth')
-Route.post('login', 'UserController.login')
-
-
-Route.post('register', 'RegisterController.store')
+Route.get('register', 'Auth/RegisterController.showRegisterForm').middleware(['authenticated'])
+Route.post('register', 'Auth/RegisterController.register').as('register')
+Route.get('register/confirm/:token', 'Auth/RegisterController.confirmEmail')
+Route.get('login', 'Auth/LoginController.showLoginForm').middleware(['authenticated'])
+Route.post('login', 'Auth/LoginController.login').as('login')
+Route.get('logout', 'Auth/AuthenticatedController.logout')
+Route.get('password/reset', 'Auth/PasswordResetController.showLinkRequestForm')
+Route.post('password/email', 'Auth/PasswordResetController.sendResetLinkEmail')
+Route.get('password/reset/:token', 'Auth/PasswordResetController.showResetForm')
+Route.post('password/reset', 'Auth/PasswordResetController.reset')
+Route.get('inventory', 'InventoryController.index').middleware(['auth'])
+Route.post('filter', 'InventoryController.filter').middleware(['auth']).as('filter')
