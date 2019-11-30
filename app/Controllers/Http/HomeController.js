@@ -4,28 +4,51 @@
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
-//import axios from 'axios'
+const Client = use('App/Models/Client')
+const Inventory = use('App/Models/Inventory')
+const Sale = use('App/Models/Sale')
+
 const axios = use('axios')
+const { subject, observer } = use('App/Helpers')
+const Env = use('Env')
+const url = Env.get('API_URL')
 
 class HomeController {
 
-    async home({view}) {
-        await this.loadApriori()
-        return view.render('home')
+    async home({ view }) {
+        const aprioriData = await this.loadApriori()
+        const chartValues = await this.loadCharts()
+
+        console.log(chartValues)
+
+        const _subject = new subject()
+        const _observer = new observer(0.046875)
+
+        return view.render('home', { chartValues: chartValues })
     }
 
+    //Calls Apriori Api made in Python flask
     async loadApriori() {
-        // Request.get('http://127.0.0.1:5000').then((result) => {
-        //     console.log(result)
-        // })
+        return axios.get(url)
+            .then(response => {
+                return response.data.data
+            })
+            .catch(err => {
+                return 'Api closed'
+            })
+    }
 
-        axios.get('http://127.0.0.1:5000')
-            .then((response) => {
-                console.log(response.data.data)
-            })
-            .catch((err) => {
-                console.log(err)
-            })
+    //Load chart values for Dashboard
+    async loadCharts() {
+        const numberClients = await Client.query().count('id AS nCl')
+        const itemsStock = await Inventory.query().sum('amount AS iSc')
+        const itemsSold = await Sale.query().sum('sold_amount AS iSo')
+        const totalEarn = await Sale.query().sum('total AS tEa')
+
+        return { numberClients, 
+                 itemsStock,
+                 itemsSold, 
+                 totalEarn } 
     }
 }
 

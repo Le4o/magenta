@@ -77,8 +77,10 @@
                                         <i class="zmdi zmdi-account-o"></i>
                                     </div>
                                     <div class="text">
-                                        <h2>10368</h2>
-                                        <span>members online</span>
+                                        @if(chartValues)
+                                            <h2>{{ chartValues.numberClients[0].nCl }}</h2>
+                                        @endif
+                                        <span>Clientes ativos</span>
                                     </div>
                                 </div>
                                 <div class="overview-chart">
@@ -92,11 +94,13 @@
                             <div class="overview__inner">
                                 <div class="overview-box clearfix">
                                     <div class="icon">
-                                        <i class="zmdi zmdi-shopping-cart"></i>
+                                        <i class="zmdi zmdi-grid"></i>
                                     </div>
                                     <div class="text">
-                                        <h2>388,688</h2>
-                                        <span>items solid</span>
+                                        @if(chartValues)
+                                            <h2>{{ chartValues.itemsStock[0].iSc }}</h2>
+                                        @endif
+                                        <span>produtos</span>
                                     </div>
                                 </div>
                                 <div class="overview-chart">
@@ -110,10 +114,12 @@
                             <div class="overview__inner">
                                 <div class="overview-box clearfix">
                                     <div class="icon">
-                                        <i class="zmdi zmdi-calendar-note"></i>
+                                        <i class="zmdi zmdi-shopping-cart"></i>
                                     </div>
                                     <div class="text">
-                                        <h2>1,086</h2>
+                                        @if(chartValues)
+                                            <h2>{{ chartValues.itemsSold[0].iSo }}</h2>
+                                        @endif
                                         <span>this week</span>
                                     </div>
                                 </div>
@@ -131,7 +137,9 @@
                                         <i class="zmdi zmdi-money"></i>
                                     </div>
                                     <div class="text">
-                                        <h2>$1,060,386</h2>
+                                        @if(chartValues)
+                                            <h2>{{ chartValues.totalEarn[0].tEa }}</h2>
+                                        @endif
                                         <span>total earnings</span>
                                     </div>
                                 </div>
