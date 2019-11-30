@@ -15,6 +15,9 @@ const url = Env.get('API_URL')
 
 class HomeController {
 
+    //Listener vai ser o observer
+    //Notification vai ser o subject
+
     async home({ view }) {
         const aprioriData = await this.loadApriori()
         const chartValues = await this.loadCharts()
