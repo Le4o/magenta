@@ -128,33 +128,33 @@
                             </div>
                             <div class="noti__item js-item-menu">
                                 <i class="zmdi zmdi-notifications"></i>
-                                <span class="quantity">3</span>
+                                <span class="quantity">1</span>
                                 <div class="notifi-dropdown js-dropdown">
+                                    @if(notificationL)
                                     <div class="notifi__title">
-                                        <p>Caaaio, 3 novas notificações</p>
-                                    </div>
-                                    <div class="notifi__item">
-                                        <div class="bg-c1 img-cir img-40">
-                                            <i class="zmdi zmdi-email-open"></i>
+                                            <p>{{ auth.user.username }} tem 1 nova notificação</p>
                                         </div>
-                                        <div class="content">
-                                            <p>Possui uma notificação de e-mail</p>
-                                            <span class="date">Abril 12, 2019 12:30</span>
-                                        </div>
-                                    </div>
-                                    <div class="notifi__item">
-                                        <div class="bg-c2 img-cir img-40">
-                                            <i class="zmdi zmdi-account-box"></i>
-                                        </div>
-                                        <div class="content">
-                                            <p>XXXXXXXXXXXX</p>
-                                            <span class="date">Abril 12, 2019 12:30</span>
+                                        <div class="notifi__item">
+                                            <div class="bg-c1 img-cir img-40">
+                                                <i class="zmdi zmdi-assignment-check"></i>
+                                            </div>
+                                            <div class="content">
+                                                <p>Os produtos </br> {{ notificationL[0] }} e </br> {{ notificationL[1] }} possuem boa taxa de compras casada</p>
+                                                <span class="date">Abril 12, 2019 12:30</span>
+                                            </div>
                                         </div>
                                     </div>
+                                    @else
+                                        <div class="notifi__title">
+                                            <p>{{ auth.user.username }} não tem novas notificações</p>
+                                        </div>
+                                    @endif
+                                    <!--
                                     <div class="notifi__footer">
                                         <a href="#">Ver todas as notificações</a>
                                     </div>
-                                </div>
+                                    -->
+                                
                             </div>
                         </div>
                         <div class="account-wrap">

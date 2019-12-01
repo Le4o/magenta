@@ -10,35 +10,30 @@ const Sale = use('App/Models/Sale')
 
 const axios = use('axios')
 const { subject, observer } = use('App/Helpers')
-const Env = use('Env')
-const url = Env.get('API_URL')
+const APIListener = use('App/Models/APIListener')
+const Notification = use('App/Models/Notification')
 
 class HomeController {
 
-    //Listener vai ser o observer
-    //Notification vai ser o subject
+    //Listener vai ser o subject
+    //Notification vai ser o observer
 
     async home({ view }) {
-        const aprioriData = await this.loadApriori()
+
+        const notification = new Notification('off')
+        const apiListener = new APIListener()
+        
+        apiListener.subscribe(notification)
+        
+        //Call function by first time
+        await apiListener.loadApriori()
+
+        apiListener.searchForBest()
+        const notificationL = await notification.formatNotification()
+ 
         const chartValues = await this.loadCharts()
 
-        console.log(chartValues)
-
-        const _subject = new subject()
-        const _observer = new observer(0.046875)
-
-        return view.render('home', { chartValues: chartValues })
-    }
-
-    //Calls Apriori Api made in Python flask
-    async loadApriori() {
-        return axios.get(url)
-            .then(response => {
-                return response.data.data
-            })
-            .catch(err => {
-                return 'Api closed'
-            })
+        return view.render('home', { chartValues: chartValues, notificationL: notificationL })
     }
 
     //Load chart values for Dashboard
