@@ -7,30 +7,22 @@ const url = Env.get('API_URL')
 
 class APIListener extends subject {
 
-    constructor () {
+    constructor (route) {
         super()
         this.data = []
+        this.route = route
     }
 
     //Calls Apriori API made in Python Flask
     async loadApriori() {
-        return axios.get(url)
+        return axios.get(url + this.route)
             .then(response => {
                 this.data = response.data.data
                 return response.data.data
             })
             .catch(err => {
-                return 'Api está fechada'
+                return 'Api está fechada / ' + err
             })
-    }
-
-    searchForBest() {
-        this.data.map(el => {
-            if (el[0] > 0.046875 && el[1].length > 1) {
-                this.notifyAll(el)
-                return
-            }
-        })
     }
 
 }

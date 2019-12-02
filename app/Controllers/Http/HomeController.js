@@ -9,9 +9,9 @@ const Inventory = use('App/Models/Inventory')
 const Sale = use('App/Models/Sale')
 
 const axios = use('axios')
-const { subject, observer } = use('App/Helpers')
-const APIListener = use('App/Models/APIListener')
+const AprioriListener = use('App/Models/AprioriListener')
 const Notification = use('App/Models/Notification')
+const InventoryService = use('App/Services/InventoryServices')
 
 class HomeController {
 
@@ -21,15 +21,14 @@ class HomeController {
     async home({ view }) {
 
         const notification = new Notification('off')
-        const apiListener = new APIListener()
+        const aprioriListener = new AprioriListener()
         
-        apiListener.subscribe(notification)
+        aprioriListener.subscribe(notification)
         
-        //Call function by first time
-        await apiListener.loadApriori()
+        await aprioriListener.loadApriori()
+        aprioriListener.searchForBest()
 
-        apiListener.searchForBest()
-        const notificationL = await notification.formatNotification()
+        const notificationL = notification.formatNotification()
  
         const chartValues = await this.loadCharts()
 
