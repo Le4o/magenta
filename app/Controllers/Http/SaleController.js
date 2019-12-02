@@ -36,7 +36,7 @@ class SaleController {
                             .join('clients', 'sales.id_buy' , '=', 'clients.id_buy')
                             .select('sales.description', 'sales.sold_amount', 'sales.total', 'clients.name')
                             .fetch()
-    console.log(sales.toJSON())
+
     return view.render('sales', { sales: sales.toJSON(), notificationL: notificationL })
   }
 

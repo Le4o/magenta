@@ -1,52 +1,113 @@
 @layout('layout.app')
 
 @section('content')
-  <div class="columns">
-    <div class="column is-4 is-offset-4">
-      <h2 class="title has-text-centered">Login</h2>
 
-      @include('includes.notification')
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-      <form action="{{ route('login') }}" method="post">
-        {{ csrfField() }}
+  <title>Login</title>
 
-        <div class="field">
-          <label class="label">Email</label>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="assets/vendor1/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/vendor1/animate/animate.css">
+  <link rel="stylesheet" type="text/css" href="assets/vendor1/css-hamburgers/hamburgers.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/vendor1/animsition/css/animsition.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/vendor1/select2/select2.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/vendor1/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" type="text/css" href="assets/css1/util.css">
+  <link rel="stylesheet" type="text/css" href="assets/css1/main.css">
+  <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>
+  <link rel="shortcut icon" href="assets/images/magenta.png" type="image/x-icon">
+  
+</head>
+<body>
+  
+  <div class="limiter">
+    <section class="xop-container">
 
-          <div class="control">
-            <input
-              type="email"
-              class="input"
-              name="email">
+      <div class="xop-left">
+        <img src="assets/images/fundo_modificado.png" alt="padrao_bg">
+      </div>
+    
+      <div class="xop-right">
+          
+         <div class="container-login100">
+           
+          <span class="login100-form-title p-b-70" style="font-weight: bold;">
+              MAGENTA
+            </span>
+            <span class="login100-form-avatar">
+                <a href="/"><img src="assets/images/magenta.png" alt="magenta_icone"></a>
+              </span>
+          
+      <div class="wrap-login100 p-t-85 p-b-20">
+        
+        <form class="login100-form validate-form" action="{{ route('login') }}" method="post">
+            {{ csrfField() }}
+            @include('includes.notification')
+
+         
+
+          <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Coloque um e-mail válido">
+            <input class="input100" type="text" name="email">
+            <span class="focus-input100" data-placeholder="E-mail"></span>
           </div>
-        </div>
 
-        <div class="field">
-          <label class="label">Password</label>
-
-          <div class="control">
-            <input
-              type="password"
-              class="input"
-              name="password">
+          <div class="wrap-input100 validate-input m-b-50" data-validate="Coloque uma senha válida">
+            <input class="input100" type="password" name="password">
+            <span class="focus-input100" data-placeholder="Senha"></span>
           </div>
-        </div>
+          
+           <div class="txt1">        
+             <div>
+             <div class="checkbox">
+               <label><input type="checkbox" name="remember"> Lembre de mim</label>
+             </div>
+            </div>
+           </div>
 
-        <div class="field">
-          <label class="checkbox">
-            <input type="checkbox" name="remember">
-            Remember me
-          </label>
-        </div>
+           <a href="login.html"> <div class="form-group">        
+             <div>
+             <div class="txt2">
+              <a href="#"><span class="psw">Esqueceu a senha?</a></span>
+             </div>
+            </div>
+           </div>
+           </a>
+      
 
-        <div class="control">
-          <button type="submit" class="button is-dark is-fullwidth is-uppercase">login</button>
-        </div>
-      </form>
-
-      <p class="has-text-centered" style="margin-top: 10px">
-        <a href="/password/reset">Forgot password?</a>
-      </p>
+          <div class="container-login100-form-btn">
+            <button class="login100-form-btn" style="color: white;" type="submit">
+              Entrar
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
+
+     </div>
+     <!--<div class="xop-right">
+      <img src="assets/images/fundo_modificado.png" alt="padrao_bg">
+     </div>
+     -->
+    </section>
+ 
   </div>
+  
+
+  <div id="dropDownSelect1"></div>
+  <script src="assets/vendor1/jquery/jquery-3.2.1.min.js"></script>
+  <script src="assets/vendor1/animsition/js/animsition.min.js"></script>
+  <script src="assets/vendor1/bootstrap/js/popper.js"></script>
+  <script src="assets/vendor1/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/vendor1/select2/select2.min.js"></script>
+  <script src="assets/vendor1/daterangepicker/moment.min.js"></script>
+  <script src="assets/vendor1/daterangepicker/daterangepicker.js"></script>
+  <script src="assets/vendor1/countdowntime/countdowntime.js"></script>
+  <script src="assets/js1/main.js"></script>
+
+</body>
+</html>
 @endsection

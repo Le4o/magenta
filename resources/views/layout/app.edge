@@ -8,7 +8,7 @@
   {{ css('vendor/wow/animate.css') }}
   {{ css('vendor/css-hamburgers/hamburgers.min.css') }}
   {{ css('vendor/slick/slick.css') }}
-  {{ css('vendor/select2/select2.min.css') }}
+  {{ css('vendor/select2/select2.min.css') }}   
   {{ css('vendor/perfect-scrollbar/perfect-scrollbar.css') }}
   {{ css('vendor/font-awesome-4.7/css/font-awesome.min.css') }}
   {{ css('vendor/font-awesome-5/css/fontawesome-all.min.css') }}
@@ -16,6 +16,9 @@
   {{ css('https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css') }}
   {{ script('http://code.jquery.com/jquery-1.11.3.min.js') }}
   {{ script('js/main.js') }}
+
+  {{ script('js/jquery/jquery-3.2.1.min.js')}}
+  {{ script('js/fonte.js')}}
 
   <link href="css/font-face.css" rel="stylesheet" media="all">
   <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
@@ -42,7 +45,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Magenta</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" />
-  
+    <style>
+		
+    </style>
 </head>
 <body>
 @loggedIn
@@ -56,96 +61,49 @@
                 <div class="header-wrap">
                     <form class="form-header" action="{{ route('filter') }}" method="POST">
                         {{ csrfField() }}
-                        <input class="au-input au-input--xl" type="text" name="search" placeholder="Pesquise por produtos cadastrados" />
+                        <input class="au-input au-input--xl acessibilidade" type="text" name="search" placeholder="Pesquise por produtos cadastrados" />
                         <button class="au-btn--submit" type="submit">
                             <i class="zmdi zmdi-search"></i>
                         </button>
                     </form>
+
+                    <script>
+
+                    </script>
+
                     <div class="header-button">
                         <div class="noti-wrap">
                             <div class="noti__item js-item-menu">
-                                <i class="zmdi zmdi-comment-more"></i>
-                                <span class="quantity">1</span>
-                                <div class="mess-dropdown js-dropdown">
-                                    <div class="mess__title">
-                                        <!--PASSAR COMO PARAMETRO AQUI PARA ATUALIZAR AS MSGNS ATT-->
-                                        <p>Caaaio, 2 mensagens novas</p>
-                                    </div>
-                                    <div class="mess__item">
-                                        <div class="image img-cir img-40">
-                                            <img src="images/icon/avatar-06.jpg" alt="foto" />
-                                        </div>
-                                        <div class="content">
-                                            <h6>CAIO </h6>
-                                            <p>Boa tarde....</p>
-                                            <span class="time">3 min atrás</span>
-                                        </div>
-                                    </div>
-                                    <div class="mess__item">
-                                        <div class="image img-cir img-40">
-                                            <img src="images/icon/avatar-04.jpg" alt="foto" />
-                                        </div>
-                                        <div class="content">
-                                            <h6>CAIO</h6>
-                                            <p>Vocês estão conectados agora</p>
-                                            <span class="time">Ontem</span>
-                                        </div>
-                                    </div>
-                                    <div class="mess__footer">
-                                        <a href="#">Ver todas as mensagens</a>
-                                    </div>
-                                </div>
+                                <i class="zmdi zmdi-minus-circle" style=" width:2px; " onClick="fonte('d');"></i>
+                                
+                              
                             </div>
                             <div class="noti__item js-item-menu">
-                                <i class="zmdi zmdi-email"></i>
-                                <span class="quantity">1</span>
-                                <div class="email-dropdown js-dropdown">
-                                    <div class="email__title">
-                                        <p>Você tem X novas mensagens no Inbox</p>
-                                    </div>
-                                    <div class="email__item">
-                                        <div class="image img-cir img-40">
-                                            <img src="images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
-                                        </div>
-                                        <div class="content">
-                                            <p>Sobre aquele produto...</p>
-                                            <span>Caio, 3 min atrás</span>
-                                        </div>
-                                    </div>
-                                    <div class="email__item">
-                                        <div class="image img-cir img-40">
-                                            <img src="images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
-                                        </div>
-                                        <div class="content">
-                                            <p>Sobre nosso caio compartilhado...</p>
-                                            <span>Caio, Ontem</span>
-                                        </div>
-                                    </div>
-                                    <div class="email__footer">
-                                        <a href="#">Ver todos os e-mails</a>
-                                    </div>
-                                </div>
+                                <i class="zmdi zmdi-text-format"style="margin-left:5px; width:2px; " onClick="fonte('n');"></i>     
                             </div>
                             <div class="noti__item js-item-menu">
-                                <i class="zmdi zmdi-notifications"></i>
-                                <span class="quantity">1</span>
+                                    <i class="zmdi zmdi-plus-circle" style=" width:2px; " onClick="fonte('a');"></i>    
+                                </div>
+                            <div class="noti__item js-item-menu">
+                                <i class="zmdi zmdi-notifications"style="margin-left:5px; "></i>
+                                <span class="quantity"></span>
                                 <div class="notifi-dropdown js-dropdown">
                                     @if(notificationL)
                                     <div class="notifi__title">
-                                            <p>{{ auth.user.username }} tem 1 nova notificação</p>
+                                            <p class="acessibilidade">{{ auth.user.username }} tem 1 nova notificação</p>
                                         </div>
                                         <div class="notifi__item">
                                             <div class="bg-c1 img-cir img-40">
                                                 <i class="zmdi zmdi-assignment-check"></i>
                                             </div>
-                                            <div class="content">
+                                            <div class="content acessibilidade">
                                                 <p>Os produtos </br> {{ notificationL[0] }} e </br> {{ notificationL[1] }} possuem boa taxa de compras casada</p>
                                                 <span class="date">Abril 12, 2019 12:30</span>
                                             </div>
                                         </div>
                                     </div>
                                     @else
-                                        <div class="notifi__title">
+                                        <div class="acessibilidade"  class="notifi__title">
                                             <p>{{ auth.user.username }} não tem novas notificações</p>
                                         </div>
                                     @endif
@@ -162,7 +120,7 @@
                                 <div class="image">
                                     <img src="images/icon/magenta.png" alt="Magenta_Logo" />
                                 </div>
-                                <div class="content">
+                                <div class="content acessibilidade">
                                     <a class="js-acc-btn" href="#">{{ auth.user.username }}</a>
                                 </div>
                                 <div class="account-dropdown js-dropdown">
@@ -173,13 +131,13 @@
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h5 class="name">
+                                            <h5 class="name acessibilidade">
                                                 <a href="#">{{ auth.user.username }} </a>
                                             </h5>
                                             <span class="email">{{ auth.user.email }}</span>
                                         </div>
                                     </div>
-                                    <div class="account-dropdown__body">
+                                    <div class="account-dropdown__body acessibilidade">
                                         <div class="account-dropdown__item">
                                             <a href="#">
                                                 <i class="zmdi zmdi-account"></i>Conta</a>
@@ -207,7 +165,7 @@
     </header>
     <!-- HEADER DESKTOP-->
     @else
-    <nav class="navbar is-dark">
+   <!-- <nav class="navbar is-dark">
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item" href="/">Magenta</a>
