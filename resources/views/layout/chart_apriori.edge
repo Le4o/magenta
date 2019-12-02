@@ -65,20 +65,26 @@
                         <table class="table table-borderless table-striped table-earning">
                             <thead>
                                 <tr>
-                                    <th class="text-left" style="color:white">Descrição</th>
-                                    <th class="text-left" style="color:white">Quantidade</th>
-                                    <th class="text-left" style="color:white">Preço</th>
-                                    <th class="text-left" style="color:white">Total</th>
+                                    <th class="text-left" style="color:white">Suporte</th>
+                                    <th class="text-left" style="color:white">Produto 1</th>
+                                    <th class="text-left" style="color:white">Produto 2</th>
+                                    <th class="text-left" style="color:white">Produto 3</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            @each(product in products)
-                                <tr>
-                                    <td class="text-left">{{ product.description }}</td>
-                                    <td class="text-left">{{ product.amount }}</td>
-                                    <td class="text-left">R${{ product.price }}</td>
-                                    <td class="text-left">R${{ product.total }}</td>
-                                </tr>
+                            @each(el in data)
+                                @if(el[1].length > 1)
+                                    <tr>
+                                        <td class="text-left">{{ el[0] }}</td>
+                                        <td class="text-left">{{ el[1][0] }}</td>
+                                        <td class="text-left">{{ el[1][1] }}</td>
+                                        @if(el[1][2])
+                                            <td class="text-left">{{ el[1][2] }}</td>  
+                                        @else
+                                            <td class="text-left">_</td>
+                                        @endif
+                                    </tr>
+                                @endif
                             @endeach
                             </tbody>
                         </table>

@@ -11,7 +11,6 @@ const Sale = use('App/Models/Sale')
 const axios = use('axios')
 const AprioriListener = use('App/Models/AprioriListener')
 const Notification = use('App/Models/Notification')
-const InventoryService = use('App/Services/InventoryServices')
 
 class HomeController {
 
@@ -28,7 +27,7 @@ class HomeController {
         await aprioriListener.loadApriori()
         aprioriListener.searchForBest()
 
-        const notificationL = notification.formatNotification()
+        const notificationL = await notification.formatNotification()
  
         const chartValues = await this.loadCharts()
 

@@ -31,20 +31,19 @@ class AprioriController {
 
         const notificationL = await notification.formatNotification()
 
-        let dataf = []
-        data.map((el, index) => {
+        const asyncForEach = async(array, callback) => {
+            for (let index = 0; index < array.length; index++) {
+              await callback(array[index], index, array);
+            }
+        }
+
+        await asyncForEach(data, async(el, index) => {
             const array = el[1]
             if (array.length > 1) {
-                InventoryService.getDescriptionById(array)
-                    .then(res => {
-                        //console.log(res)
-                        return res
-                    })
+                el[1] = await InventoryService.getDescriptionById(el[1])   
             }
         })
         
-
-        console.log(dataf)
         return view.render('apriori', {data: data, notificationL: notificationL})
     }
 }
