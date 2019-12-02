@@ -8,7 +8,6 @@ const Client = use('App/Models/Client')
 const Inventory = use('App/Models/Inventory')
 const Sale = use('App/Models/Sale')
 
-const axios = use('axios')
 const AprioriListener = use('App/Models/AprioriListener')
 const Notification = use('App/Models/Notification')
 

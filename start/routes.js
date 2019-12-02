@@ -31,3 +31,4 @@ Route.get('inventory', 'InventoryController.index').middleware(['auth']).as('inv
 Route.post('filter', 'InventoryController.filter').middleware(['auth']).as('filter')
 Route.get('apriori', 'AprioriController.index').middleware(['auth']).as('apriori')
 Route.get('sales', 'SaleController.index').middleware(['auth']).as('sales')
+Route.get('help', 'HelpController.index').middleware(['auth']).as('help')

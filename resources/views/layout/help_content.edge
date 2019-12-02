@@ -1,0 +1,45 @@
+@section('dashboard')
+<!-- MENU SIDEBAR-->
+<aside class="menu-sidebar d-none d-lg-block">
+        <div class="logo">
+            <a href="#">
+              <img src="{{ assetsUrl('images/icon/magenta.png') }}" alt="Magenta_Logo"  style="height: 55px; width: 75px;" />
+            </a>
+        </div>
+        <div class="menu-sidebar__content js-scrollbar1">
+            <nav class="navbar-sidebar">
+                <ul class="list-unstyled navbar__list">
+                    <li  >
+                        <a href="{{route('/')}}" class="acessibilidade">
+                            <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                    </li>
+                    <li >
+                        <a href="{{route('inventory')}}" class="acessibilidade">
+                            <i class="zmdi zmdi-tv-list"></i>Inventário</a>
+                    </li>
+                    <li >
+                        <a href="{{route('sales')}}" class="acessibilidade">
+                            <i class="zmdi zmdi-money"></i>Vendas</a>
+                    </li>
+                    <li >
+                        <a href="{{route('apriori')}}" class="acessibilidade">
+                            <i class="zmdi zmdi-accounts-alt"></i>Compras casadas</a>
+                    </li>
+                    <li class="active has-sub">
+                        <a href="{{route('help')}}" class="acessibilidade">
+                            <i class="zmdi zmdi-help"></i>Ajuda</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+    <!-- END MENU SIDEBAR-->
+<div class="page-wrapper">
+    <!-- MAIN CONTENT-->
+    <div class="main-content">
+        
+    <!-- END MAIN CONTENT-->
+    <!-- END PAGE CONTAINER-->
+    </div>
+</div>
+    @endsection
