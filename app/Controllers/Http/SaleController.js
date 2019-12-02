@@ -4,6 +4,10 @@
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
+const Sale = use('App/Models/Sale')
+const Notification = use('App/Models/Notification')
+const AprioriListener = use('App/Models/AprioriListener')
+
 /**
  * Resourceful controller for interacting with sales
  */
@@ -17,7 +21,23 @@ class SaleController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async index ({ request, response, view }) {
+  async index ({ view }) {
+    const notification = new Notification('off')
+    const aprioriListener = new AprioriListener()
+    
+    aprioriListener.subscribe(notification)
+    
+    await aprioriListener.loadApriori()
+    aprioriListener.searchForBest()
+
+    const notificationL = await notification.formatNotification()
+
+    const sales = await Sale.query()
+                            .join('clients', 'sales.id_buy' , '=', 'clients.id_buy')
+                            .select('sales.description', 'sales.sold_amount', 'sales.total', 'clients.name')
+                            .fetch()
+    console.log(sales.toJSON())
+    return view.render('sales', { sales: sales.toJSON(), notificationL: notificationL })
   }
 
   /**

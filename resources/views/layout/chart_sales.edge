@@ -12,12 +12,12 @@
                 <a class="js-arrow" href="{{ route('home') }}">
                         <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                 </li>
-                <li class="active has-sub" >
+                <li >
                     <a href="{{ route('inventory') }}" >
                         <i class="fas fa-chart-bar"></i>Inventário</a>
                 </li>
-                <li>
-                    <a href="{{ route('sales') }}"">
+                <li  class="active has-sub">
+                    <a href="{{ route('sales') }}">
                         <i class="far fa-check-square"></i>Vendas</a>
                 </li>
                 <li>
@@ -53,36 +53,31 @@
     </div>
 </aside>
 <!-- END MENU SIDEBAR-->
-@if(products.length > 0)
+@if(sales.length > 0)
 <div class="main-content">
     <div class="section__content section__content--p30">
         <div class="container-fluid">
             <div class="row">
                 <div style="display:block; width:100%">
-                    <h2 class="title-1 m-b-25">Inventário</h2>
+                    <h2 class="title-1 m-b-25">Vendas</h2>
                 </div>  
-                @if(searchWord !== undefined)
-                <div style="display:block; width:100%">
-                    <h3 class="subtitle is-5 m-b-25">Mostrando resultados de: {{ searchWord }}</h3>
-                </div>
-                @endif
                 <div class="table-responsive table--no-card m-b-40">
                     <table class="table table-borderless table-striped table-earning">
                         <thead>
                             <tr>
                                 <th class="text-left" style="color:white">Descrição</th>
-                                <th class="text-left" style="color:white">Quantidade</th>
-                                <th class="text-left" style="color:white">Preço</th>
+                                <th class="text-left" style="color:white">Quantidade vendida</th>
                                 <th class="text-left" style="color:white">Total</th>
+                                <th class="text-left" style="color:white">Cliente</th>
                             </tr>
                         </thead>
                         <tbody>
-                        @each(product in products)
+                        @each(sale in sales)
                             <tr>
-                                <td class="text-left">{{ product.description }}</td>
-                                <td class="text-left">{{ product.amount }}</td>
-                                <td class="text-left">R${{ product.price }}</td>
-                                <td class="text-left">R${{ product.total }}</td>
+                                <td class="text-left">{{ sale.description }}</td>
+                                <td class="text-left">{{ sale.sold_amount }}</td>
+                                <td class="text-left">R$ {{ sale.total }}</td>
+                                <td class="text-left">{{ sale.name }}</td>
                             </tr>
                         @endeach
                         </tbody>

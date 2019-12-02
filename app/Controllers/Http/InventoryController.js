@@ -5,7 +5,8 @@
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
 const Inventory = use('App/Models/Inventory')
-const Database = use('Database')
+const Notification = use('App/Models/Notification')
+const AprioriListener = use('App/Models/AprioriListener')
 
 /**
  * Resourceful controller for interacting with inventories
@@ -21,8 +22,18 @@ class InventoryController {
    * @param {View} ctx.view
    */
   async index ({ view }) {
+    const notification = new Notification('off')
+      const aprioriListener = new AprioriListener()
+      
+      aprioriListener.subscribe(notification)
+      
+      await aprioriListener.loadApriori()
+      aprioriListener.searchForBest()
+
+      const notificationL = await notification.formatNotification()
+
     const products = await Inventory.all()
-    return view.render('inventory', { products: products.toJSON() })
+    return view.render('inventory', { products: products.toJSON(), notificationL: notificationL })
   }
 
   /**

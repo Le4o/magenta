@@ -9,20 +9,20 @@
             <nav class="navbar-sidebar">
                 <ul class="list-unstyled navbar__list">
                     <li >
-                    <a class="js-arrow" href="{{ route('home') }}">
+                    <a href="{{ route('/') }}">
                             <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                     </li>
                     <li >
                         <a href="{{ route('inventory') }}" >
                             <i class="fas fa-chart-bar"></i>Inventário</a>
                     </li>
+                    <li>
+                        <a href="{{ route('sales') }}">
+                            <i class="far fa-check-square"></i>Vendas</a>
+                    </li>
                     <li class="active has-sub" >
                         <a href="{{ route('apriori') }}">
                             <i class="fas fa-table"></i>Compras casadas</a>
-                    </li>
-                    <li>
-                        <a href="form.html">
-                            <i class="far fa-check-square"></i>Forms</a>
                     </li>
                     <li>
                         <a href="calendar.html">
@@ -59,7 +59,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div style="display:block; width:100%">
-                        <h2 class="title-1 m-b-25">Inventário</h2>
+                        <h2 class="title-1 m-b-25">Compras casadas</h2>
                     </div>  
                     <div class="table-responsive table--no-card m-b-40">
                         <table class="table table-borderless table-striped table-earning">
@@ -75,13 +75,17 @@
                             @each(el in data)
                                 @if(el[1].length > 1)
                                     <tr>
-                                        <td class="text-left">{{ el[0] }}</td>
+                                        <td class="text-left">
+                                            @if(el[1][0] == notificationL[0] && el[1][1] == notificationL[1] && !el[1][2])
+                                                &#11088;
+                                            @endif 
+                                            {{ el[0] }}</td>
                                         <td class="text-left">{{ el[1][0] }}</td>
                                         <td class="text-left">{{ el[1][1] }}</td>
                                         @if(el[1][2])
                                             <td class="text-left">{{ el[1][2] }}</td>  
-                                        @else
-                                            <td class="text-left">_</td>
+                                        @else                                 
+                                            <td class="text-left"></td>
                                         @endif
                                     </tr>
                                 @endif
