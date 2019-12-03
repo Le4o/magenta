@@ -13,12 +13,12 @@ class APIListener extends subject {
         this.route = route
     }
 
-    //Calls Apriori API made in Python Flask
-    async loadApriori() {
+    //Calls API route and return data
+    async loadApi() {
         return axios.get(url + this.route)
             .then(response => {
                 this.data = response.data.data
-                return response.data.data
+                return response.data.data   
             })
             .catch(err => {
                 return 'Api está fechada / ' + err

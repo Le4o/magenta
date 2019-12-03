@@ -251,25 +251,61 @@
     //Chart Cliente x Produtos
     var ctx = document.getElementById("client_product");
     if (ctx) {
-      ctx.height = 115;
+      ctx.height = 250;
       var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+          labels: ['DEGRAUS ANDAIMES MAQ. E EQUIP.P/ CONST.CIVIL S.A', 'TW AUTOMAÇÃO LTDA-ME', 'Cliente Vendas Padrão', 'LIMIAR IND. COM. DE ALIMENTO LTDA', 'MIMEG-MAN.E INST.DE MAQ. E. EM GERAL E C.LTDA', 'QUIMIL IND.  E COMERCIO S/A', 'ENGENHARIA E MANUTENÇAO GERAL LTDA', 'RONALD SILVA', 'PLASKEM-EMBALAGENS LTDA', 'MULTINOVA INDUSTRIA DE EMBALAGENS PLASTICAS LTDA', 'AMBA ANDAIMES MECANICOS DA BAHIA LTDA', 'RESPIRARMED COMERCIAL DE ARTIGOS MEDICOS E ORTOPED'],
           datasets: [
             {
-              label: "My First dataset",
-              data: [78, 81, 80, 65, 58, 75, 60, 75, 65, 60, 60, 75],
-              borderColor: "transparent",
-              borderWidth: "0",
-              backgroundColor: "rgba(255,255,255,.3)"
+              label: "Quantidade de Produtos Comprados",
+              data: [1752, 1406, 1333, 477, 463, 146, 108, 75, 72, 62, 39, 33],
+              borderColor: "rgba(0, 255, 119, 1)",
+              borderWidth: "1",
+              backgroundColor: "rgba(0, 255, 119, 1)"
             }
           ]
         },
         options: {
           maintainAspectRatio: true,
           legend: {
-            display: false
+            display: true
+          },
+          scales: {
+            xAxes: [{
+              display: false,
+              categoryPercentage: 1,
+              barPercentage: 0.65
+            }],
+            yAxes: [{
+              display: false
+            }]
+          }
+        }
+      });
+    }
+
+    var ctx = document.getElementById("client_total");
+    if (ctx) {
+      ctx.height = 250;
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Cliente Vendas Padrão', 'LIMIAR IND. COM. DE ALIMENTO LTDA', 'Cliente Vendas Padrão', 'DEGRAUS ANDAIMES MAQ. E EQUIP.P/ CONST.CIVIL S.A', 'QUIMIL IND.  E COMERCIO S/A', 'UNIKLOG LOGISTICA LTDA', 'TW AUTOMAÇÃO LTDA-ME', 'MULTINOVA INDUSTRIA DE EMBALAGENS PLASTICAS LTDA', 'AMBA ANDAIMES MECANICOS DA BAHIA LTDA', 'WASTE SERVICES BRASIL LTDA', 'NOVABRINK IND. DE PLASTICOS LTDA', 'PLASKEM-EMBALAGENS LTDA'],
+          datasets: [
+            {
+              label: "Quantidade de Capital Gasto",
+              data: [22957, 19240, 5292, 4217, 3850, 3491, 2761, 2696, 2485, 2395, 2165, 2115],
+              borderColor: "rgba(255,0,255,1)",
+              borderWidth: "1",
+              backgroundColor: "rgba(255,0,255,1)"
+            }
+          ]
+        },
+        options: {
+          maintainAspectRatio: true,
+          legend: {
+            display: true
           },
           scales: {
             xAxes: [{
@@ -1705,3 +1741,5 @@
   }
 
 })(jQuery);
+
+module.exports = loadChart1

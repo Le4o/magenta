@@ -45,19 +45,19 @@
                     <table class="table table-borderless table-striped table-earning">
                         <thead>
                             <tr>
-                                <th class="text-left" style="color:white">Descrição</th>
-                                <th class="text-left" style="color:white">Quantidade vendida</th>
-                                <th class="text-left" style="color:white">Total</th>
-                                <th class="text-left" style="color:white">Cliente</th>
+                                <th class="text-left acessibilidade" style="color:white">Descrição</th>
+                                <th class="text-left acessibilidade" style="color:white">Quantidade vendida</th>
+                                <th class="text-left acessibilidade" style="color:white">Total</th>
+                                <th class="text-left acessibilidade" style="color:white">Cliente</th>
                             </tr>
                         </thead>
                         <tbody>
                         @each(sale in sales)
                             <tr>
-                                <td class="text-left">{{ sale.description }}</td>
-                                <td class="text-left">{{ sale.sold_amount }}</td>
-                                <td class="text-left">R$ {{ sale.total }}</td>
-                                <td class="text-left">{{ sale.name }}</td>
+                                <td class="text-left acessibilidade">{{ sale.description }}</td>
+                                <td class="text-left acessibilidade">{{ sale.sold_amount }}</td>
+                                <td class="text-left acessibilidade">R$ {{ sale.total }}</td>
+                                <td class="text-left acessibilidade">{{ sale.name }}</td>
                             </tr>
                         @endeach
                         </tbody>

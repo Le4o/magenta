@@ -1,3 +1,4 @@
+
 function fonte(e) {
 
 	var elemento = $(".acessibilidade");

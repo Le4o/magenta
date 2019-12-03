@@ -26,7 +26,7 @@ class AprioriController {
 
         aprioriListener.subscribe(notification)
 
-        const data = await aprioriListener.loadApriori()
+        const data = await aprioriListener.loadApi()
         aprioriListener.searchForBest()
 
         const notificationL = await notification.formatNotification()

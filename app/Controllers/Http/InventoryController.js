@@ -27,7 +27,7 @@ class InventoryController {
       
       aprioriListener.subscribe(notification)
       
-      await aprioriListener.loadApriori()
+      await aprioriListener.loadApi()
       aprioriListener.searchForBest()
 
       const notificationL = await notification.formatNotification()

@@ -45,27 +45,27 @@
                         <table class="table table-borderless table-striped table-earning">
                             <thead>
                                 <tr>
-                                    <th class="text-left" style="color:white">Suporte</th>
-                                    <th class="text-left" style="color:white">Produto 1</th>
-                                    <th class="text-left" style="color:white">Produto 2</th>
-                                    <th class="text-left" style="color:white">Produto 3</th>
+                                    <th class="text-left acessibilidade" style="color:white">Suporte</th>
+                                    <th class="text-left acessibilidade" style="color:white">Produto 1</th>
+                                    <th class="text-left acessibilidade" style="color:white">Produto 2</th>
+                                    <th class="text-left acessibilidade" style="color:white">Produto 3</th>
                                 </tr>
                             </thead>
                             <tbody>
                             @each(el in data)
                                 @if(el[1].length > 1)
                                     <tr>
-                                        <td class="text-left">
+                                        <td class="text-left acessibilidade">
                                             @if(el[1][0] == notificationL[0] && el[1][1] == notificationL[1] && !el[1][2])
                                                 &#11088;
                                             @endif 
                                             {{ el[0] }}</td>
-                                        <td class="text-left">{{ el[1][0] }}</td>
-                                        <td class="text-left">{{ el[1][1] }}</td>
+                                        <td class="text-left acessibilidade">{{ el[1][0] }}</td>
+                                        <td class="text-left acessibilidade">{{ el[1][1] }}</td>
                                         @if(el[1][2])
-                                            <td class="text-left">{{ el[1][2] }}</td>  
+                                            <td class="text-left acessibilidade">{{ el[1][2] }}</td>  
                                         @else                                 
-                                            <td class="text-left"></td>
+                                            <td class="text-left acessibilidade"></td>
                                         @endif
                                     </tr>
                                 @endif

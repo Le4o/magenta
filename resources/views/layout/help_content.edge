@@ -2,7 +2,7 @@
 <!-- MENU SIDEBAR-->
 <aside class="menu-sidebar d-none d-lg-block">
         <div class="logo">
-            <a href="#">
+        <a href="{{route('/')}}">
               <img src="{{ assetsUrl('images/icon/magenta.png') }}" alt="Magenta_Logo"  style="height: 55px; width: 75px;" />
             </a>
         </div>
@@ -33,13 +33,190 @@
             </nav>
         </div>
     </aside>
-    <!-- END MENU SIDEBAR-->
-<div class="page-wrapper">
-    <!-- MAIN CONTENT-->
-    <div class="main-content">
-        
-    <!-- END MAIN CONTENT-->
-    <!-- END PAGE CONTAINER-->
-    </div>
-</div>
+   <div class="main-content">
+				<div class="section__content section__content--p30">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="card">
+									<div class="card-header">
+										<i class="mr-2 fa fa-align-justify"></i>
+										<strong class="card-title acessibilidade" v-if="headerText">Como podemos te ajudar?</strong>
+									</div>
+									<div class="card-body">
+
+										
+										<button type="button" class="btn btn-secondary mb-1 acessibilidade" data-toggle="modal" data-target="#smallmodal">
+											Como posso aumentar a fonte do site?
+										</button>
+
+										<button type="button" class="btn btn-secondary mb-1 acessibilidade" data-toggle="modal" data-target="#mediumModal">
+											Como faço para ver o caminho que já fiz?
+										</button>
+										<button type="button" class="btn btn-secondary mb-1 acessibilidade" data-toggle="modal" data-target="#largeModal">
+											Como pesquisar um item no inventário?
+										</button>
+										<center><button type="button" class="btn btn-secondary mb-1 acessibilidade" data-toggle="modal" data-target="#scrollmodal">
+											Como fazer log off
+										</button>
+										<button type="button" class="btn btn-secondary mb-1 acessibilidade" data-toggle="modal" data-target="#staticModal">
+											Como posso ver minhas notificações?
+										</button>
+										</center>
+
+									</div>
+								
+								</div>
+
+									<center><h5>Alguma outra dúvida que não foi sanada? Fale conosco!</h5></center>
+											<br>
+                                      	 <center><div class="col-12 col-md-9">
+                                                    <textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Descreva aqui sua necessidade..." class="form-control" style="width: 500px;height: 100px;"></textarea>
+                                                </div>
+                                                <br>
+                                            <button type="button" class="btn btn-secondary mb-1" type="submit">
+														Enviar
+												</button>
+												</center>
+                                            </div>
+							</div>
+						</div>
+                    </div>
+                    <div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-sm" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="smallmodalLabel">Como posso aumentar a fonte do site?</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="false">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>
+                                            As páginas possuem no canto superior direito 3 botões para redimensionamento do texto. O botão esquerdo diminui o texto. O central volta ao valor padrão. E o da direita aumenta o texto.&#128512;
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="mediumModalLabel">Como faço para ver o caminho que já fiz?</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>
+                                            Você pode sempre olhar o navegador de páginas do lado esquerdo. Sua página atual sempre estará marcada em azul. &#128540;
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="largeModalLabel">Como pesquisar um item no inventário?</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>
+                                            A qualquer momento, você pode consultar se um item está no inventário escrevendo o nome dele na barra superior central. &#128540;
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="modal fade" id="scrollmodal" tabindex="-1" role="dialog" aria-labelledby="scrollmodalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="scrollmodalLabel">Como fazer log off</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>
+                                            Acessando o menu no canto superior direito (Clique no seu nome &#128588;) você verá uma opção 'Sair', ao clicá-la você deslogará da conta e voltará para a página de login.
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="modal fade" id="staticModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true"
+                         data-backdrop="static">
+                            <div class="modal-dialog modal-sm" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticModalLabel">Como posso ver minhas notificações?</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>
+                                            No canto superior direito, ao lado da sua foto de perfil é possível clicar em um sino &#128276;, ele te mostrará suas notificações.
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+				</div>
+			
+                <script src="vendor/jquery-3.2.1.min.js"></script>
+
+                <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+                <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+            
+                <script src="vendor/slick/slick.min.js">
+                </script>
+                <script src="vendor/wow/wow.min.js"></script>
+                <script src="vendor/animsition/animsition.min.js"></script>
+                <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+                </script>
+                <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+                <script src="vendor/counter-up/jquery.counterup.min.js">
+                </script>
+                <script src="vendor/circle-progress/circle-progress.min.js"></script>
+                <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+                <script src="vendor/chartjs/Chart.bundle.min.js"></script>
+                <script src="vendor/select2/select2.min.js">
+                </script>
+            
+            
+                <script src="js/main.js"></script>
+			
+	
+	
     @endsection

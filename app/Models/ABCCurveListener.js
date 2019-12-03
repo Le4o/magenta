@@ -5,7 +5,7 @@ const APIListener = use('App/Models/APIListener')
 class ABCCurveListener extends APIListener {
 
     constructor () {
-        super('curva')
+        super('/curva')
     }
 
 }
