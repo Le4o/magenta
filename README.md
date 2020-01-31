@@ -16,7 +16,7 @@ This is the fullstack boilerplate for AdonisJs, it comes pre-configured with.	Th
 You need to install: 
 
 ```bash	
-Run `yarn install` to add all those repositories.
+Run `yarn install` to add all the repositories.
 ```	
 __Only use `yarn add` to download repositories__
 
