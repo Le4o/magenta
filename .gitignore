@@ -14,3 +14,6 @@ database/*.sqlite
 # VSCode & Webstorm history directories
 .history
 .idea
+
+# Yarn auto-generated file
+yarn.lock
